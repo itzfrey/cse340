@@ -31,7 +31,7 @@ h3 {
 #top-header {
   display: flex;
   justify-content: space-between;
-  padding: 15px 10px 20px 10px;
+  padding: 10px 10px 20px 10px;
 }
 
 .siteName a,
@@ -58,7 +58,7 @@ h3 {
 
 .navigation ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   background-color: var(--black);
 }
 
@@ -71,7 +71,7 @@ h3 {
   text-decoration: none;
   color: var(--white);
   padding: .8rem 10px;
-  font-size: .9rem;
+  font-size: .8rem;
 }
 
 .navigation a:hover {
@@ -92,10 +92,8 @@ h3 {
 }
 
 .vehicle-info {
-  background-color: rgba(237, 237, 237, 0.5);
   margin-left: 10px;
   width: auto;
-  position: absolute;
   bottom: 0px;
 }
 
@@ -186,8 +184,87 @@ h3 {
 }
 
 footer {
-  margin: 0 10px 10px 10px;
+  margin: 20px 10px 10px 10px;
+}
+
+/**************** INV PAGE ********************/
+#inv-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+}
+
+#inv-display li  {
+  display: block;
+  width: 250px;
+  list-style: none;
+  text-decoration: none;
+  margin: 0 auto;
+}
+
+.inv-list {
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+.inv-list a img {
+  width: 100%;
+  
+}
+
+.namePrice h2 {
+  margin: 15px;
 }
 
 
 
+.namePrice span {
+  display: block;
+  margin-bottom: 15px;
+}
+.namePrice a {
+  color: var(--primary-color);
+}
+hr {
+  border-top: 3px solid #333;
+  }
+
+
+/**************** DETAIL PAGE ********************/
+#vehicle-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+main h1 {
+  padding: 15px 0px 10px 10px;
+}
+
+.vehicle-img img {
+  max-width: 370px;
+  width: 100%;
+}
+
+.vehicle-info h2 {
+  margin: 20px 0 20px 0;
+}
+
+.vehicle-info p {
+  padding: 0 10px 0 15px                            ;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.price {
+    background-color: #ddd;
+    padding: 10px 0 10px 10px;
+    margin-bottom: 10px;
+
+  }
+
+.error-section {
+  margin: 10px;
+}

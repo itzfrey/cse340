@@ -83,6 +83,20 @@
         font-size: 1.2rem;
     }
 
+    #inv-display {
+        gap: 1.5rem;
+    }
+
+    #vehicle-detail {
+        flex-direction: row;
+    }
+
+    .vehicle-img img {
+        width: 370px;
+    }
+
+    
+
 
 
 
