@@ -69,7 +69,7 @@ Util.buildVehicleDetail = async function (vehicle) {
              alt="Image of ${vehicle.inv_make} ${vehicle.inv_model} on CSE Motors">
       </div>
 
-      <div class="vehicle-info">
+      <div class="vehicles-info">
         <h2>${vehicle.inv_year} ${vehicle.inv_make} ${vehicle.inv_model}</h2>
 
         <p class="price"><strong>Price: </strong> 
