@@ -1,0 +1,59 @@
+<main class="register-container">
+
+  <h1 class="register-title"><%= title %></h1>
+
+  <!-- Display validation errors -->
+  <% if (errors) { %>
+    <ul class="notice">
+      <% errors.array().forEach(error => { %>
+        <li><%= error.msg %></li>
+      <% }) %>
+    </ul>
+  <% } %>
+
+  <%- messages() %>
+
+  <!-- Registration Form -->
+  <form action="/account/register" method="post" class="register-form">
+
+    <div class="form-group">
+      <label for="accountfirstname" class="form-label">First Name</label>
+      <input type="text" class="form-input" name="account_firstname" id="accountfirstname" required value="<%= locals.account_firstname %>">
+    </div>
+
+    <div class="form-group">
+      <label for="accountlastname" class="form-label">Last Name</label>
+      <input type="text" class="form-input" name="account_lastname" id="accountlastname" required value="<%= locals.account_lastname %>">
+    </div>
+
+    <div class="form-group">
+      <label for="account_email" class="form-label">Email</label>
+      <input type="email" id="account_email" name="account_email" class="form-input" required placeholder="Enter a valid email address" value="<%= locals.account_email %>">
+    </div>
+
+    <div class="form-group">
+      <label for="account_password" class="form-label">Password</label>
+      <span>Passwords must be at least 12 characters and contain at least 1 number, 1 capital letter and 1 special character</span> 
+      <input type="password" id="account_password" name="account_password" class="form-input" 
+        required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+      <button type="button" class="password-toggle" onclick="togglePassword()">Show/Hide</button>
+    </div>
+
+    <button type="submit" class="form-button">Register</button>
+  </form>
+
+  <p class="register-footer">
+    Already have an account? <a href="/account/login">Login here</a>.
+  </p>
+</main>
+
+<script>
+  function togglePassword() {
+    const pwInput = document.getElementById("account_password");
+    if (pwInput.type === "password") {
+      pwInput.type = "text";
+    } else {
+      pwInput.type = "password";
+    }
+  }
+</script>

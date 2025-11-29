@@ -14,6 +14,46 @@ const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute.js")
 const utilities = require("./utilities")
 const baseRoute = require("./routes/baseRoute");
+const session = require("express-session")
+const pool = require('./database/')
+const accountRoute = require("./routes/accountRoute")
+const bodyParser = require("body-parser")
+const flash = require("connect-flash")
+app.use(flash())
+
+
+
+/* ***********************
+ * Middleware
+ * ************************/
+ app.use(session({
+  store: new (require('connect-pg-simple')(session))({
+    createTableIfMissing: true,
+    pool,
+  }),
+  secret: process.env.SESSION_SECRET,
+  resave: true,
+  saveUninitialized: true,
+  name: 'sessionId',
+}))
+
+
+// Express Messages Middleware
+app.use(require('connect-flash')())
+app.use(function(req, res, next){
+  res.locals.messages = require('express-messages')(req, res)
+  next()
+})
+
+// Flash notice middleware
+app.use((req, res, next) => {
+  res.locals.notice = req.flash("notice")
+  next()
+})
+
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 
 /* ***********************
@@ -36,6 +76,8 @@ app.use("/inv", inventoryRoute)
 
 app.use("/", baseRoute);
 
+// Account routes 
+app.use("/account", require("./routes/accountRoute"))
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {

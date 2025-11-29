@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= title %></title>
+</head>
+<body>
+
+  <%- include('../partials/header') %>
+
+ <main class="login-container">
+
+  <h1 class="login-title"><%= title %></h1>
+
+<!-- Display validation errors -->
+<% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<%- messages() %>
+
+
+
+
+
+  <!-- Login Form -->
+  <form action="/account/login" method="post" class="login-form" id="loginForm">
+
+    <div class="form-group">
+      <label for="account_email" class="form-label">Email</label>
+      <input type="email" id="account_email" name="account_email" class="form-input" required placeholder="Enter a valid email address" value="<%= locals.account_email %>">
+    </div>
+
+    <div class="form-group">
+      <label for="account_password" class="form-label">Password</label>
+      <input type="password" id="account_password" name="account_password" class="form-input" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$">
+    </div>
+
+    <button type="submit" class="form-button">Login</button>
+  </form>
+
+  <p class="login-footer">
+    Don't have an account? 
+    <a href="/account/register">Create one here</a>.
+  </p>
+
+</main>
+
+
+
+</body>
+</html>
