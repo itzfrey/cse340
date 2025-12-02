@@ -229,7 +229,7 @@ footer {
   margin-bottom: 15px;
 }
 .namePrice a {
-  color: var(--primary-color);
+  color: #164b0e;
 }
 hr {
   border-top: 3px solid #333;
@@ -261,12 +261,10 @@ main h1 {
   margin-bottom: 20px;
 }
 
+
 .price {
     background-color: #ddd;
-    padding: 10px 0 10px 10px; 
-    margin-bottom: 10px;
-
-  }
+}
 
 .error-section {
   margin: 10px;
@@ -346,18 +344,7 @@ main h1 {
   outline: none;
 }
 
-/* ===== Submit Button ===== */
-.form-button {
-  padding: 0.8rem;
-  background-color: #0066ff;
-  color: #fff;
-  font-weight: 600;
-  font-size: 1rem;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.25s;
-}
+
 
 .form-button:hover {
   background-color: #0052cc;
@@ -406,32 +393,22 @@ main h1 {
 
 #messages {
   list-style: none;
+  margin: 0 10px 10px 10px;
 }
 
-/* .flash-message {
-  padding: 12px 16px;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
+.manage-inv {
+  margin: 0 10px 0 10px;
 }
-
-.flash-error {
-  background-color: #ffe5e5;
-  border: 1px solid #ffb3b3;
-  color: #b30000;
-}
-
-.flash-success {
-  background-color: #e3ffe5;
-  border: 1px solid #9df2a8;
-  color: #007a17;
-} */
 
 /* ===== Form ===== */
 .register-form {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+}
+
+form {
+  font-family: var(--text-font);
 }
 
 .form-group {
@@ -481,8 +458,8 @@ main h1 {
 /* ===== Submit Button ===== */
 .form-button {
   padding: 0.8rem;
-  background-color: #0066ff;
-  color: #fff;
+  background-color: var(--primary-color);
+  color: var(--text-font);
   font-weight: 600;
   font-size: 1rem;
   border: none;
@@ -492,7 +469,8 @@ main h1 {
 }
 
 .form-button:hover {
-  background-color: #0052cc;
+  background-color: #2b9e1c;
+  color: var(--white);
 }
 
 /* ===== Footer / Login Link ===== */
@@ -512,3 +490,175 @@ main h1 {
   text-decoration: underline;
 }
 
+
+/* ==========================================
+   INVENTORY MANAGEMENT
+   ========================================== */
+.management-links {
+  padding: 1rem 10px 0 10px;
+  border-radius: 8px;
+}
+
+.management-links h2 {
+  margin: 0 0 10px 0;
+}
+
+.management-links ul {
+  list-style: none;
+}
+
+
+.management-links a {
+  display: inline-block;
+  padding: .8rem 10px;
+  background-color: var(--primary-color);
+  color: var(--black);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow);
+  margin-bottom: 15px;
+}
+
+.management-links a:hover {
+  background-color: #2b9e1c;
+  color: var(--white);
+  transform: translateX(5px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ==========================================
+   ADD CLASSIFICATION FORM
+   ========================================== */
+
+.classification-info {
+  margin-left: 10px;
+}
+
+#addClassificationForm {
+  max-width: 600px;
+  margin: 1rem 10px;
+}
+
+#addClassificationForm .form-group {
+  margin-bottom: 1rem;
+}
+
+#addClassificationForm label {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.3px;
+}
+
+#addClassificationForm span {
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+#addClassificationForm input[type="text"] {
+  width: 100%;
+  padding: .8rem .8rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+#addClassificationForm input[type="text"]:focus {
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+#addClassificationForm input[type="text"]:valid {
+  background-color: var(--primary-color);
+}
+
+#addClassificationForm input[type="text"]:invalid:not(:placeholder-shown) {
+  background-color: #fef2f2;
+}
+
+.return-to-management {
+  
+  background-color: var(--primary-color);
+  padding: .5rem;
+  width: 250px;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+.return-to-management a {
+  text-decoration: none;
+  color: var(--black);
+
+}
+
+.return-to-management:hover {
+  background-color: #2b9e1c;
+  color: var(--white);
+}
+
+#addInventoryForm {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border-color);
+}
+
+#addInventoryForm .form-group {
+  margin-bottom: 1.75rem;
+}
+
+#addInventoryForm label {
+  display: block;
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.3px;
+}
+
+#addInventoryForm input[type="text"],
+#addInventoryForm input[type="number"],
+#addInventoryForm textarea,
+#addInventoryForm select {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background-color: var(--white);
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-family: inherit;
+}
+
+#addInventoryForm input[type="text"]:focus,
+#addInventoryForm input[type="number"]:focus,
+#addInventoryForm textarea:focus,
+#addInventoryForm select:focus {
+  box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.15);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+#addInventoryForm input:valid:not([type="submit"]):not(:placeholder-shown),
+#addInventoryForm select:valid,
+#addInventoryForm textarea:valid:not(:placeholder-shown) {
+  border-color: var(--success-color);
+  background-color: #f0fdf4;
+}
+
+#addInventoryForm input:invalid:not(:placeholder-shown),
+#addInventoryForm textarea:invalid:not(:placeholder-shown) {
+  border-color: var(--error-color);
+  background-color: #fef2f2;
+}
