@@ -534,6 +534,7 @@ form {
 
 .classification-info {
   margin-left: 10px;
+  font-style: italic;
 }
 
 #addClassificationForm {
