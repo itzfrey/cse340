@@ -1,0 +1,22 @@
+<% if (title) { %>
+  <h1><%= title %></h1>
+<% } else { %>
+  <h1>Account Management</h1>
+<% } %>
+
+<!-- Display validation errors -->
+<% if (errors) { %>
+  <ul class="notice">
+    <% errors.array().forEach(error => { %>
+      <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<!-- Flash Messages -->
+<%- messages() %>
+
+<div class="account-content">
+  <h2>You're logged in</h2>
+  <p>Welcome to your account management area.</p>
+</div>
